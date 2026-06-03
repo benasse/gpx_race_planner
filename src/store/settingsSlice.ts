@@ -26,7 +26,7 @@ interface SettingsState {
 }
 
 const initialState: SettingsState = {
-  language: 'fr',
+  language: 'en',
   appMode: 'gpx',
   targetMode: 'pace',
   targetPaceSeconds: 330,
