@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aide - GPX Race Planner</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.7;
+    }
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    header .icon { font-size: 2rem; color: #3b82f6; }
+    header h1 { margin: 0; font-size: 1.6rem; color: #1e293b; }
+    h2 {
+      font-size: 1.15rem;
+      color: #3b82f6;
+      margin: 2rem 0 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: #3b82f6;
+      border-radius: 2px;
+    }
+    p { margin: 0.4rem 0 0.8rem; color: #374151; }
+    ol, ul { margin: 0.4rem 0 1rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.35rem; color: #374151; }
+    .callout {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      margin: 1rem 0;
+      color: #1d4ed8;
+    }
+    .callout strong { color: #1e40af; }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+    .badge-red    { background: #fee2e2; color: #991b1b; }
+    .badge-green  { background: #dcfce7; color: #166534; }
+    .badge-gray   { background: #f1f5f9; color: #475569; }
+    a { color: #3b82f6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .ext-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #3b82f6;
+      color: #fff;
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+    .ext-link:hover { background: #2563eb; text-decoration: none; }
+    code {
+      background: #f1f5f9;
+      border-radius: 4px;
+      padding: 0.1em 0.45em;
+      font-size: 0.88em;
+      color: #0f172a;
+    }
+    .step-grid {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 0.4rem 0.75rem;
+      margin: 0.5rem 0 1rem;
+    }
+    .step-num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: #3b82f6;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .step-text { padding-top: 0.25rem; color: #374151; }
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 2rem 0; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <span class="icon">🗺️</span>
+    <h1>GPX Race Planner - Aide</h1>
+  </header>
+
+  <h2>Ce que fait l'application</h2>
+  <p>
+    GPX Race Planner vous aide à construire un <strong>plan d'allure</strong> pour une course
+    ou une séance d'entraînement. Vous pouvez fournir le parcours en important un fichier
+    <code>.gpx</code> ou en saisissant manuellement les segments avec leur distance et leur
+    variation d'altitude. Le résultat est une liste d'allures cibles par segment, exportable
+    comme entraînement directement vers Garmin Connect.
+  </p>
+
+  <hr />
+
+  <h2>Prérequis</h2>
+  <div class="callout">
+    <strong>Navigateur Google Chrome</strong> - l'import de l'entraînement dans Garmin Connect
+    nécessite une extension Chrome, disponible pour Chrome et les navigateurs basés sur Chromium
+    comme Edge ou Brave.
+  </div>
+
+  <h2>Installer l'extension Chrome</h2>
+  <p>
+    Pour importer le plan d'allure dans Garmin Connect, installez l'extension
+    <strong>Share Your Garmin Connect</strong> :
+  </p>
+  <a class="ext-link"
+     href="https://chromewebstore.google.com/detail/share-your-garmin-connect/kdpolhnlnkengkmfncjdbfdehglepmff"
+     target="_blank" rel="noopener">
+    ↗ Ouvrir dans le Chrome Web Store
+  </a>
+  <p style="margin-top:0.8rem;">
+    Une fois installée, l'icône de l'extension apparaît dans Chrome. Cliquez dessus pour importer
+    le fichier <code>.json</code> téléchargé directement dans votre compte Garmin Connect.
+  </p>
+
+  <hr />
+
+  <h2>Pas à pas - fichier GPX</h2>
+
+  <div class="step-grid">
+    <div class="step-num">1</div>
+    <div class="step-text">
+      Vérifiez que le mode est réglé sur <strong>Fichier GPX</strong> (par défaut), puis importez
+      votre parcours <code>.gpx</code> en le déposant dans la zone prévue ou en cliquant pour
+      parcourir vos fichiers.
+    </div>
+
+    <div class="step-num">2</div>
+    <div class="step-text">
+      L'application découpe automatiquement le parcours en segments selon la pente
+      (<span class="badge badge-red">montée</span>
+       <span class="badge badge-green">descente</span>
+       <span class="badge badge-gray">plat</span>).
+      Ajustez le <em>lissage</em>, le <em>seuil de pente</em> et la <em>longueur minimale</em>
+      si nécessaire.
+    </div>
+
+    <div class="step-num">3</div>
+    <div class="step-text">
+      Saisissez votre <strong>allure cible</strong> (min:ss&nbsp;/&nbsp;km) ou votre
+      <strong>temps total cible</strong> (h:mm:ss).
+    </div>
+
+    <div class="step-num">4</div>
+    <div class="step-text">
+      Choisissez un <strong>modèle d'effort</strong> (Linéaire / Puissance / Exponentiel / Minetti)
+      et réglez les corrections en montée et en descente. Vous pouvez aussi configurer une
+      stratégie de course (négative / régulière / positive).
+    </div>
+
+    <div class="step-num">5</div>
+    <div class="step-text">
+      Vérifiez les allures par segment dans le tableau <em>Plan d'allure</em>.
+      Survoler une ligne met en évidence le segment correspondant sur la carte et le profil
+      d'altitude.
+    </div>
+
+    <div class="step-num">6</div>
+    <div class="step-text">
+      Cliquez sur <strong>Télécharger l'entraînement Garmin</strong> dans le menu.
+      Un fichier <code>.json</code> sera enregistré dans votre dossier de téléchargements.
+    </div>
+
+    <div class="step-num">7</div>
+    <div class="step-text">
+      Cliquez sur l'icône de l'extension <strong>Share Your Garmin Connect</strong> dans Chrome,
+      puis importez le fichier <code>.json</code> téléchargé dans Garmin Connect.
+    </div>
+  </div>
+
+  <hr />
+
+  <h2>Pas à pas - saisie manuelle</h2>
+
+  <div class="step-grid">
+    <div class="step-num">1</div>
+    <div class="step-text">
+      Passez le mode sur <strong>Manuel</strong>.
+    </div>
+
+    <div class="step-num">2</div>
+    <div class="step-text">
+      Pour chaque segment, saisissez la <strong>longueur (km)</strong> et la
+      <strong>variation d'altitude (m ou %)</strong>. Le type de segment (montée / descente / plat)
+      est détecté automatiquement. Cliquez sur <strong>+</strong> pour ajouter le segment.
+    </div>
+
+    <div class="step-num">3</div>
+    <div class="step-text">
+      Modifiez un segment avec le bouton crayon : le formulaire passe en mode édition.
+      Confirmez avec le bouton de validation ou <kbd>Entrée</kbd> ; annulez avec <kbd>Échap</kbd>.
+    </div>
+
+    <div class="step-num">4</div>
+    <div class="step-text">
+      Continuez ensuite comme pour le flux GPX (étapes 3 à 7 ci-dessus).
+    </div>
+  </div>
+
+  <hr />
+
+  <h2>Modèles d'effort</h2>
+  <ul>
+    <li><strong>Linéaire</strong> - l'allure varie directement avec la pente. Simple et prévisible.</li>
+    <li><strong>Puissance</strong> - les pentes douces sont moins pénalisées, les pentes raides davantage. L'<em>exposant n</em> contrôle la courbure.</li>
+    <li><strong>Exponentiel</strong> - contraste encore plus marqué entre les pentes faibles et fortes.</li>
+    <li><strong>Minetti</strong> - modèle biomécanique (Minetti et al. 2002) sans paramètres utilisateur. Le plus réaliste, mais le moins configurable.</li>
+  </ul>
+
+  <h2>Stratégie de course</h2>
+  <ul>
+    <li><strong>Stratégie négative</strong> - partir plus lentement et finir plus vite.</li>
+    <li><strong>Stratégie régulière</strong> - effort constant sur toute la course (par défaut).</li>
+    <li><strong>Stratégie positive</strong> - partir plus vite et ralentir vers la fin.</li>
+  </ul>
+  <p>Le curseur <em>intensité de la stratégie</em> contrôle l'écart entre le début et la fin.</p>
+
+  <hr />
+
+  <p style="color:#94a3b8; font-size:0.82rem; text-align:center;">
+    GPX Race Planner &nbsp;·&nbsp; demo: <a href="https://gpx.martinkobelka.cz" target="_blank">gpx.martinkobelka.cz</a>
+  </p>
+
+</div>
+</body>
+</html>
