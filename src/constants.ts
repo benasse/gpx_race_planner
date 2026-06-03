@@ -8,7 +8,7 @@ export const AUTHOR_LABEL = 'martinkobelka.cz';
 // Available UI languages
 export const LANGS: { value: Lang; label: string }[] = [
   { value: 'cs', label: 'CS' },
-  { value: 'sk', label: 'SK' },
   { value: 'en', label: 'EN' },
   { value: 'fr', label: 'FR' },
+  { value: 'sk', label: 'SK' },
 ];
